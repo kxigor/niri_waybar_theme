@@ -1,0 +1,12 @@
+default-timeout=5000
+
+background-color=#000000
+text-color=#e6edf3
+border-color=#6fc3df
+border-size=1
+border-radius=0
+padding=8,12
+
+[urgency=critical]
+border-color=#f14c4c
+default-timeout=0

@@ -1,0 +1,170 @@
+/* Palette: VS Code "Dark High Contrast" base (#000000/#FFFFFF),
+   #6FC3DF (contrastBorder) for structure, plus bright classic accents
+   pulled from VS Code's default terminal ANSI colors for module semantics:
+   orange #F38518 (focusBorder), green #23D18B, blue #3B8EEA,
+   red #F14C4C, purple #D670D6. */
+
+* {
+    font-family: "Fira Code", monospace;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #000000;
+    color: #ffffff;
+    border-bottom: 2px solid #6fc3df;
+}
+
+#workspaces,
+#window,
+#language,
+#cpu,
+#memory,
+#temperature,
+#pulseaudio,
+#custom-vpn,
+#network,
+#battery,
+#clock,
+#tray {
+    padding: 0 12px;
+    background-color: #000000;
+    color: #ffffff;
+    border-bottom: 2px solid #6fc3df;
+}
+
+/* Every module gets a hard contrast border — no gradients, no gaps */
+#window,
+#language,
+#cpu,
+#memory,
+#temperature,
+#pulseaudio,
+#custom-vpn,
+#network,
+#battery,
+#clock,
+#tray {
+    border-left: 2px solid #6fc3df;
+}
+
+/* Drawer: hidden modules slide out with no fade, borders stay crisp */
+.not-system {
+    border-left: 2px solid #6fc3df;
+}
+
+/* --- Workspaces --- */
+#workspaces {
+    padding: 0;
+    margin: 0;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-right: 2px solid #6fc3df;
+    border-bottom: 2px solid #6fc3df;
+}
+
+#workspaces button.active {
+    background-color: #f38518;
+    color: #000000;
+}
+
+#workspaces button.urgent {
+    background-color: #f14c4c;
+    color: #000000;
+}
+
+#workspaces button:hover {
+    background-color: #6fc3df;
+    color: #000000;
+}
+
+/* --- Window title --- */
+#window {
+    color: #ffffff;
+}
+
+window#waybar.empty #window {
+    color: #6fc3df;
+}
+
+/* --- Right modules --- */
+#language {
+    color: #d670d6;
+}
+
+#pulseaudio {
+    color: #3b8eea;
+}
+
+#pulseaudio.muted {
+    color: #6fc3df;
+}
+
+#cpu {
+    color: #f5f543;
+}
+
+#memory {
+    color: #23d18b;
+}
+
+#temperature {
+    color: #ffffff;
+}
+
+#temperature.warning {
+    color: #f38518;
+}
+
+#temperature.critical {
+    color: #f14c4c;
+}
+
+#custom-vpn {
+    color: #9aa4ae;
+}
+
+#custom-vpn.active {
+    color: #23d18b;
+}
+
+#network {
+    color: #23d18b;
+}
+
+#network.disconnected {
+    color: #f14c4c;
+}
+
+#battery {
+    color: #ffffff;
+}
+
+#battery.charging {
+    color: #23d18b;
+}
+
+#battery.warning:not(.charging) {
+    color: #f38518;
+}
+
+#battery.critical:not(.charging) {
+    color: #f14c4c;
+}
+
+#clock {
+    color: #ffffff;
+}
+
+#tray {
+    padding-right: 12px;
+    border-right: none;
+}

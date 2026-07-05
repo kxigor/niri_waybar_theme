@@ -1,0 +1,94 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 0,
+
+    "modules-left": ["niri/workspaces"],
+    "modules-center": ["niri/window"],
+    "modules-right": ["niri/language", "group/system", "pulseaudio", "custom/vpn", "network", "battery", "clock"],
+
+    "group/system": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "not-system",
+            "click-to-reveal": true
+        },
+        "modules": ["cpu", "memory", "temperature"]
+    },
+
+    "cpu": {
+        "format": "CPU {usage}%",
+        "interval": 3
+    },
+
+    "memory": {
+        "format": "RAM {percentage}%",
+        "interval": 5
+    },
+
+    "temperature": {
+        "thermal-zone": 10,
+        "format": "{temperatureC}°C",
+        "warning-threshold": 75,
+        "critical-threshold": 90,
+        "interval": 5
+    },
+
+    "niri/workspaces": {
+        "format": "{index}",
+        "disable-click": false
+    },
+
+    "niri/window": {
+        "format": "{title}",
+        "max-length": 80
+    },
+
+    "niri/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-ru": "RU",
+        "on-click": "niri msg action switch-layout next"
+    },
+
+    "clock": {
+        "format": "{:%H:%M:%S | %Y-%m-%d}",
+        "interval": 1,
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "battery": {
+        "format": "BAT {capacity}%",
+        "format-charging": "CHG {capacity}%",
+        "format-full": "FULL {capacity}%",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "on-click": "xfce4-power-manager-settings"
+    },
+
+    "network": {
+        "format-wifi": "WIFI {signalStrength}%",
+        "format-ethernet": "ETH {ipaddr}",
+        "format-disconnected": "OFFLINE",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "on-click": "nm-connection-editor"
+    },
+
+    "custom/vpn": {
+        "exec": "active=$(nmcli -t -f NAME,TYPE,STATE con show --active | grep ':vpn:activated\\|:wireguard:activated' | cut -d: -f1 | head -1); if [ -n \"$active\" ]; then echo \"{\\\"text\\\": \\\"$active\\\", \\\"class\\\": \\\"active\\\"}\"; else echo \"{\\\"text\\\": \\\"VPN\\\", \\\"class\\\": \\\"inactive\\\"}\"; fi",
+        "return-type": "json",
+        "interval": 5,
+        "on-click": "/home/garik/.config/waybar/scripts/vpn-toggle.sh",
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "format": "VOL {volume}%",
+        "format-muted": "MUTE",
+        "on-click": "pavucontrol"
+    }
+}
