@@ -13,7 +13,7 @@ while IFS= read -r vpn; do
     fi
 done <<< "$all_vpns"
 
-selected=$(printf "$list" | fuzzel --dmenu)
+selected=$(printf '%b' "$list" | fuzzel --dmenu)
 [ -z "$selected" ] && exit 0
 
 name=$(echo "$selected" | sed 's/^[+-] //')
