@@ -283,6 +283,7 @@ overview {
 // spawn-at-startup "qs" "-c" "noctalia-shell"
 
 spawn-at-startup "waybar"
+spawn-at-startup "swayidle" "-w" "timeout" "300" "brightnessctl -s set 20%" "resume" "brightnessctl -r" "timeout" "360" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "timeout" "600" "systemctl suspend" "before-sleep" "swaylock"
 spawn-at-startup "mako"
 spawn-at-startup "swaybg" "-c" "#000000"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
