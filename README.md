@@ -29,24 +29,6 @@ cp swaylock/config         ~/.config/swaylock/
 cp kitty/kitty.conf        ~/.config/kitty/
 ```
 
-## SSH agent
-
-```
-systemctl --user enable --now ssh-agent
-mkdir -p ~/.config/environment.d
-echo 'SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket' > ~/.config/environment.d/ssh-agent.conf
-```
-
-После этого перелогиниться и выполнить `ssh-add ~/.ssh/id_ed25519`.
-
-## Тёмная тема GTK
-
-```
-mkdir -p ~/.config/gtk-3.0 ~/.config/gtk-4.0
-printf '[Settings]\ngtk-application-prefer-dark-theme=1\n' \
-    | tee ~/.config/gtk-3.0/settings.ini ~/.config/gtk-4.0/settings.ini
-```
-
 ## VPN
 
 Модуль VPN в waybar показывает активное подключение, по клику открывает fuzzel-меню со списком профилей. Профили добавляются через `nm-connection-editor` или `nmcli con import`.
