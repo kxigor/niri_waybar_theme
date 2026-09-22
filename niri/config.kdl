@@ -427,6 +427,11 @@ binds {
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
 
+    // Side buttons switch columns without keyboard modifiers.
+    // These replace Back/Forward navigation in applications.
+    MouseBack    repeat=false { focus-column-left; }
+    MouseForward repeat=false { focus-column-right; }
+
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
